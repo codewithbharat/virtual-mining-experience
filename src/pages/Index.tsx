@@ -50,7 +50,7 @@ const Index: React.FC = () => {
     <>
       <Header />
       
-      <main className="pt-24 pb-16 min-h-screen flex flex-col">
+      <main className="pt-20 pb-24 min-h-screen flex flex-col">
         <div className="container max-w-5xl mx-auto px-4">
           {/* Coin animation overlay */}
           {showAnimation && (
@@ -68,7 +68,7 @@ const Index: React.FC = () => {
                       opacity: 0.7,
                     }}
                   >
-                    <div className="text-5xl">💰</div>
+                    <div className="text-3xl md:text-5xl">💰</div>
                   </div>
                 ))}
               </div>
@@ -76,7 +76,7 @@ const Index: React.FC = () => {
           )}
           
           {/* User stats */}
-          <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <UserStats 
               coins={coins}
               miningRate={miningRate}
@@ -87,9 +87,9 @@ const Index: React.FC = () => {
           
           {/* Mining section */}
           <div className="flex flex-col items-center">
-            <div className="mb-8 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <h2 className="text-3xl font-bold mb-2">Virtual Mining</h2>
-              <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+            <div className="mb-6 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">Virtual Mining</h2>
+              <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-md mx-auto">
                 Press the button every 12 hours to mine coins. Refer friends to increase your mining rate.
               </p>
             </div>
@@ -102,7 +102,7 @@ const Index: React.FC = () => {
               />
             </div>
             
-            <div className="mt-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="mt-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <CountdownTimer 
                 timeRemaining={formatTimeRemaining()} 
                 canMine={canMine} 

@@ -14,15 +14,15 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 py-2 md:py-4">
       <div className="container max-w-5xl mx-auto px-4">
-        <div className="glass-card rounded-xl py-3 px-4 flex items-center justify-between">
+        <div className="glass-card rounded-xl py-2 px-3 md:py-3 md:px-4 flex items-center justify-between">
           <div className="flex items-center">
-            <div className="text-mining-default font-bold text-xl mr-2">VM</div>
-            <h1 className="text-lg font-semibold hidden sm:block">Virtual Mining</h1>
+            <div className="text-mining-default font-bold text-xl mr-1">VM</div>
+            <h1 className="text-sm md:text-lg font-semibold hidden sm:block">Virtual Mining</h1>
           </div>
           
-          <nav>
+          <nav className="hidden md:block">
             <ul className="flex space-x-1 sm:space-x-2">
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;

@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { useMining } from '@/hooks/useMining';
 import Header from '@/components/Header';
 import UserStats from '@/components/UserStats';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Calendar, ArrowUp, Clock } from 'lucide-react';
+import { Calendar, ArrowUp, Clock, Users } from 'lucide-react';
 
 // Mock mining history data
 const MOCK_HISTORY = [
@@ -44,17 +43,17 @@ const Dashboard: React.FC = () => {
     <>
       <Header />
       
-      <main className="pt-24 pb-16 min-h-screen gradient-bg">
+      <main className="pt-20 pb-24 min-h-screen gradient-bg">
         <div className="container max-w-5xl mx-auto px-4">
-          <div className="mb-8 animate-fade-in">
-            <h2 className="text-3xl font-bold mb-2">Dashboard</h2>
-            <p className="text-gray-500 dark:text-gray-400">
+          <div className="mb-6 animate-fade-in">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Dashboard</h2>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
               Track your mining progress and activity.
             </p>
           </div>
           
           {/* Stats */}
-          <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <UserStats 
               coins={coins}
               miningRate={miningRate}
@@ -63,18 +62,18 @@ const Dashboard: React.FC = () => {
             />
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
             {/* Mining history chart */}
-            <div className="lg:col-span-2 glass-card rounded-xl p-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="lg:col-span-2 glass-card rounded-xl p-4 md:p-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold">Mining History</h3>
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                  <Calendar className="w-4 h-4 mr-1" />
+                <h3 className="text-base md:text-lg font-semibold">Mining History</h3>
+                <div className="flex items-center text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                  <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-1" />
                   <span>Last 14 days</span>
                 </div>
               </div>
               
-              <div className="h-72">
+              <div className="h-60 md:h-72">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart
                     data={MOCK_HISTORY}
@@ -91,12 +90,13 @@ const Dashboard: React.FC = () => {
                       dataKey="day" 
                       tickLine={false} 
                       axisLine={false}
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 10 }}
+                      interval="preserveStartEnd"
                     />
                     <YAxis 
                       tickLine={false} 
                       axisLine={false} 
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 10 }}
                       tickFormatter={(value) => `${value}`}
                     />
                     <Tooltip />
@@ -113,10 +113,10 @@ const Dashboard: React.FC = () => {
             </div>
             
             {/* Recent activity */}
-            <div className="lg:col-span-1 glass-card rounded-xl p-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <h3 className="text-lg font-semibold mb-4">Recent Activity</h3>
+            <div className="lg:col-span-1 glass-card rounded-xl p-4 md:p-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <h3 className="text-base md:text-lg font-semibold mb-4">Recent Activity</h3>
               
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {MOCK_ACTIVITIES.map((activity, index) => (
                   <div 
                     key={activity.id} 
@@ -125,23 +125,23 @@ const Dashboard: React.FC = () => {
                   >
                     <div className="mt-0.5">
                       {activity.action.includes('Mining') ? (
-                        <div className="w-8 h-8 rounded-full bg-mining-light/50 flex items-center justify-center">
-                          <ArrowUp className="w-4 h-4 text-mining-default" />
+                        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-mining-light/50 flex items-center justify-center">
+                          <ArrowUp className="w-3 h-3 md:w-4 md:h-4 text-mining-default" />
                         </div>
                       ) : (
-                        <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                          <Users className="w-4 h-4 text-green-600 dark:text-green-400" />
+                        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                          <Users className="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400" />
                         </div>
                       )}
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between">
-                        <span className="font-medium">{activity.action}</span>
-                        <span className={activity.amount.includes('+') ? 'text-green-600 dark:text-green-400' : 'text-mining-default'}>
+                        <span className="text-sm md:text-base font-medium">{activity.action}</span>
+                        <span className={`text-sm md:text-base ${activity.amount.includes('+') ? 'text-green-600 dark:text-green-400' : 'text-mining-default'}`}>
                           {activity.amount}
                         </span>
                       </div>
-                      <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center text-xs md:text-sm text-gray-500 dark:text-gray-400">
                         <Clock className="w-3 h-3 mr-1" />
                         <span>{activity.date}</span>
                       </div>

@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import Referrals from "./pages/Referrals";
 import NotFound from "./pages/NotFound";
+import MobileTabBar from "./components/MobileTabBar";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/referrals" element={<Referrals />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <MobileTabBar />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

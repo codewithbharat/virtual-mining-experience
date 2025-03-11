@@ -43,7 +43,7 @@ const UserStats: React.FC<UserStatsProps> = ({
   ];
   
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4", className)}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4", className)}>
       {stats.map((stat) => (
         <StatCard key={stat.name} {...stat} />
       ))}
@@ -61,14 +61,14 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ name, value, icon: Icon, iconColor, bgColor }) => {
   return (
-    <div className="glass-card rounded-xl p-4 transition-all duration-300 hover:shadow-md">
+    <div className="glass-card rounded-xl p-3 md:p-4 transition-all duration-300 hover:shadow-md">
       <div className="flex items-center">
-        <div className={cn("p-2 rounded-lg mr-4", bgColor)}>
-          <Icon className={cn("w-5 h-5", iconColor)} />
+        <div className={cn("p-1.5 md:p-2 rounded-lg mr-3", bgColor)}>
+          <Icon className={cn("w-4 h-4 md:w-5 md:h-5", iconColor)} />
         </div>
         <div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">{name}</div>
-          <div className="text-lg font-semibold">{value}</div>
+          <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">{name}</div>
+          <div className="text-base md:text-lg font-semibold">{value}</div>
         </div>
       </div>
     </div>
