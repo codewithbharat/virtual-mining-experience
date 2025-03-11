@@ -9,8 +9,8 @@ const MobileTabBar: React.FC = () => {
   
   const tabs = [
     { name: 'Home', path: '/', icon: Home },
-    { name: 'Wallet', path: '/wallet', icon: Wallet },
     { name: 'Circle', path: '/referrals', icon: Users },
+    { name: 'Wallet', path: '/wallet', icon: Wallet },
     { name: 'Profile', path: '/profile', icon: UserRound },
   ];
 
