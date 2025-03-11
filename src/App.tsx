@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import Referrals from "./pages/Referrals";
+import Wallet from "./pages/Wallet";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import MobileTabBar from "./components/MobileTabBar";
 
@@ -32,6 +34,8 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/referrals" element={<Referrals />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <MobileTabBar />

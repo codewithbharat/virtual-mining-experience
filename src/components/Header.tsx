@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Home, Users, BarChart3 } from 'lucide-react';
+import { Home, Users, Wallet, UserRound, BarChart3 } from 'lucide-react';
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -11,6 +11,8 @@ const Header: React.FC = () => {
     { name: 'Mine', path: '/', icon: Home },
     { name: 'Referrals', path: '/referrals', icon: Users },
     { name: 'Dashboard', path: '/dashboard', icon: BarChart3 },
+    { name: 'Wallet', path: '/wallet', icon: Wallet },
+    { name: 'Profile', path: '/profile', icon: UserRound },
   ];
 
   return (
