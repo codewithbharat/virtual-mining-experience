@@ -16,9 +16,10 @@ import MobileTabBar from "./components/MobileTabBar";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Apply gradient background to body
+  // Apply gradient background to body, force dark theme
   useEffect(() => {
     document.body.classList.add('gradient-bg');
+    document.documentElement.classList.add('dark');
     return () => {
       document.body.classList.remove('gradient-bg');
     };
@@ -30,15 +31,17 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/referrals" element={<Referrals />} />
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <MobileTabBar />
+          <div className="bg-[#111827] text-white min-h-screen">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/referrals" element={<Referrals />} />
+              <Route path="/wallet" element={<Wallet />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <MobileTabBar />
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
